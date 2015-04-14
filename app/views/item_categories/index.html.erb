@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @item_categories.each do |item_category| %>
+            <tr>
+              <td><%= item_category.name %></td>
+              <td><%= item_category.description %></td>
+              <td><%= link_to 'Show', edit_item_category_path(item_category) %> | <%= link_to 'Destroy', item_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="panel-body">
+        <%= will_paginate @item_categories, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="col-sm-12">
+      <%= link_to 'New Item Category', new_item_category_path, :class => "btn btn-success btn-lg active" %>
+    </div>

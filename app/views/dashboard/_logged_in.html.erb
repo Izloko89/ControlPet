@@ -1,0 +1,56 @@
+<%= render :partial => 'template/dashboard_menu' %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Recent Sales</div>
+  <div class="table-responsive">
+	  <table class="table table-striped table-bordered table-hover">
+	  	<tr>
+	  		<th>#</th>
+        <th>Created</th>
+        <th>Customer</th>
+        <th>Total</th>
+        <th>Tax</th>
+        <th>Paid</th>
+        <th>Balance</th>
+        <th></th>
+	  	</tr>
+	  	<% for sale in @recent_sales %>
+	    	<tr class="<%= sale.remaining_balance == 0.00 && !sale.total_amount.blank? ? 'success' : '' %>">
+	    		<td><%= sale.id %></td>
+          <td><%= sale.created_at.strftime("%m/%d/%y %I:%M:%S %p")  %></td>
+          <td><%= sale.customer.blank? ? '-' : sale.customer.last_name %></td>
+          <td><%= number_to_currency sale.total_amount %></td>
+          <td><%= number_to_currency sale.tax %></td>
+          <td><%= number_to_currency sale.paid_total %></td>
+          <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Paid" : "#{number_to_currency sale.remaining_balance}" %></td>
+          <td><%= link_to 'Show', edit_sale_path(sale) %> | <%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    	</tr>
+	    <% end %>
+	  </table>
+	</div>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Popular Items</div>
+
+  <div class="panel-body">
+    <% for item in @popular_items %>
+      <%= link_to create_sale_with_product_dashboard_index_path(:item_id => item.id, :quantity => 1) do %>
+        <button type="button" class="btn btn-default">
+          <%= item.name %>
+        </button>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Summary</div>
+
+  <!-- Table -->
+  <%= render :partial => 'template/sales_summary' %>
+</div>

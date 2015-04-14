@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+
+	<div class="panel-body">
+	  <ul class="nav nav-tabs hidden-print">
+	    <li class="active"><a href="#totals" data-toggle="tab">Totals</a></li>
+	    <li><a href="#today" data-toggle="tab">Today</a></li>
+	    <li><a href="#date_range" data-toggle="tab">Date Range</a></li>
+	  </ul>
+  
+	  <div class="tab-content">
+	    <div class="tab-pane active" id="totals">
+	    	<%= render :partial => 'template/sales_summary' %>
+	    </div>
+	    <div class="tab-pane" id="today">
+	    	<%= render :partial => 'template/sales_today' %>
+	    </div>
+	    <div class="tab-pane" id="date_range">
+	    	<%= render :partial => 'template/sales_date_range' %>
+	    </div>
+	  </div>
+	</div>
+
+
+</div>
