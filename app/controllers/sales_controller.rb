@@ -7,6 +7,7 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.create
+    @sale.user_id = current_user.user_id
     redirect_to :controller => 'sales', :action => 'edit', :id => @sale.id
   end
 
@@ -44,11 +45,11 @@ class SalesController < ApplicationController
     populate_items
 
     if params[:search][:item_category].blank?
-      @available_items = Item.find(:all, :conditions => ['name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%"], :limit => 5)
+      @available_items = Item.where('name ILIKE ? AND published = true OR description ILIKE ? AND published = true OR sku ILIKE ? AND published = true', "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%", "%#{params[:search][:item_name]}%").where(:user_id => current_user.user_id).limit(5)
     elsif params[:search][:item_name].blank?
-      @available_items = Item.where(:item_category_id => params[:search][:item_category]).limit(5)
+      @available_items = Item.where(:item_category_id => params[:search][:item_category]).where(:user_id => current_user.user_id).limit(5)
     else
-      @available_items = Item.find(:all, :conditions => ['name ILIKE ? AND published = true AND item_category_id = ? OR description ILIKE ? AND published = true AND item_category_id = ? OR sku ILIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}"], :limit => 5)
+      @available_items = Item.where('name ILIKE ? AND published = true AND item_category_id = ? OR description ILIKE ? AND published = true AND item_category_id = ? OR sku ILIKE ? AND published = true AND item_category_id = ?', "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}", "%#{params[:search][:item_name]}%", "#{params[:search][:item_category]}",).where(:user_id => current_user.user_id).limit(5)
     end
 
     respond_to do |format|
@@ -277,6 +278,7 @@ class SalesController < ApplicationController
   def add_comment
     set_sale
     @sale.comments = params[:sale_comments][:comments]
+    sale.user_id = current_user.user_id
     @sale.save
 
     respond_to do |format|
@@ -311,11 +313,11 @@ class SalesController < ApplicationController
     end
 
     def populate_items
-      @available_items = Item.all(:conditions => ['published', true], :limit => 5)
+      @available_items = Item.where(:published => true, :user_id => current_user.user_id).limit(5)
     end
 
     def populate_customers
-      @available_customers = Customer.all(:conditions => ['published', true], :limit => 5)
+      @available_customers = Customer.where(:published => true, :user_id => current_user.user_id).limit(5)
     end
 
     def remove_item_from_stock(item_id, quantity)

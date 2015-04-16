@@ -9,7 +9,7 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label>Category</label>
-          <%= f.collection_select :item_category_id, ItemCategory.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"}  %>
+          <%= f.collection_select :item_category_id, ItemCategory.where(:user_id => current_user.user_id), :id, :name, {prompt: "Select a category"}, {class: "form-control"}  %>
         </div>
       </div>
     </div>
