@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420165735) do
+ActiveRecord::Schema.define(version: 20150416182632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140420165735) do
     t.boolean  "published",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "item_categories", force: true do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140420165735) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "items", force: true do |t|
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140420165735) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "item_category_id"
+    t.integer  "user_id"
   end
 
   create_table "line_items", force: true do |t|
@@ -67,9 +70,11 @@ ActiveRecord::Schema.define(version: 20140420165735) do
     t.string   "payment_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "sales", force: true do |t|
+    t.integer  "user_id"
     t.decimal  "amount",           precision: 8, scale: 2
     t.decimal  "total_amount",     precision: 8, scale: 2
     t.decimal  "remaining_amount"
@@ -115,8 +120,10 @@ ActiveRecord::Schema.define(version: 20140420165735) do
     t.boolean  "can_view_reports",         default: false
     t.boolean  "can_update_sale_discount", default: false
     t.boolean  "can_remove_sales",         default: false
+    t.boolean  "is_admin",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

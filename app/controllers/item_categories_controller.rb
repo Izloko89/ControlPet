@@ -4,7 +4,7 @@ class ItemCategoriesController < ApplicationController
   # GET /item_categories
   # GET /item_categories.json
   def index
-    @item_categories = ItemCategory.paginate(:page => params[:page], :per_page => 20)
+    @item_categories = ItemCategory.paginate(:page => params[:page], :per_page => 20).where(:user_id => current_user.id)
   end
 
   # GET /item_categories/1
@@ -25,7 +25,7 @@ class ItemCategoriesController < ApplicationController
   # POST /item_categories.json
   def create
     @item_category = ItemCategory.new(item_category_params)
-
+    @item_category.user_id = current_user.id
     respond_to do |format|
       if @item_category.save
         format.html { redirect_to @item_category, notice: 'Item category was successfully created.' }

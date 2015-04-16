@@ -1,6 +1,7 @@
 class CreateSales < ActiveRecord::Migration
   def change
     create_table :sales do |t|
+      t.integer :user_id
     	t.decimal :amount, :precision => 8, :scale => 2
       t.decimal :total_amount, :precision => 8, :scale => 2
       t.decimal :remaining_amount
@@ -8,8 +9,8 @@ class CreateSales < ActiveRecord::Migration
       t.decimal :tax, :precision => 8, :scale => 2
       t.integer :customer_id
       t.text :comments
-
       t.timestamps
+
     end
   end
 end

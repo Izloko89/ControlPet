@@ -1,12 +1,12 @@
 class DashboardController < ApplicationController
   def index
-  	@recent_sales = Sale.find(:all, :limit => 10, :order => 'id DESC')
-  	@popular_items = Item.find(:all, :limit => 10, :order => 'amount_sold DESC')
+  	@recent_sales = Sale.where(:user_id => current_user.user_id).order(:id).limit(10)
+  	@popular_items = Item.where(:user_id => current_user.user_id).order(:id).limit(10)
   end
 
   def create_sale_with_product
 		@sale = Sale.create
-		item = Item.find(params[:item_id])
+		item = Item.where(params[:item_id])
 		LineItem.create(:item_id => params[:item_id].to_i, :quantity => params[:quantity].to_i, :price => item.price, :total_price => item.price * params[:quantity].to_i, :sale_id => @sale.id)
     
 		price = (item.price * params[:quantity].to_i )
@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
     @sale.save
 
     redirect_to :controller => 'sales', :action => 'edit', :id => @sale.id
-	end
+  end
 
 	def get_tax_rate
     if @configurations.tax_rate.blank?

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(:page => params[:page], :per_page => 20)
+    @users = User.paginate(:page => params[:page], :per_page => 20).where(:user_id => current_user)
   end
 
   # GET /users/1
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'user was successfully created.' }
@@ -40,7 +39,13 @@ class UsersController < ApplicationController
 
   def new_user
     @user = User.new(:email => params[:user][:email], :username => params[:user][:username], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-
+    #agregar una validacion para que agregue el user_id del admin y lo coloque
+    if current_user.user_id.blank?
+      @user.user_id = @user_id.id
+      @user.is_admin = true
+    else
+      @user.user_id = current_user.user_id
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'user was successfully created.' }
@@ -62,6 +67,7 @@ class UsersController < ApplicationController
     end
 
     respond_to do |format|
+
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'user was successfully updated.' }
         format.json { head :no_content }
@@ -75,7 +81,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if @user.id == 1
+    if @user.is_admin == true
       redirect_to users_url, notice: "You can't delete the main administrator!"
     else
       @user.destroy

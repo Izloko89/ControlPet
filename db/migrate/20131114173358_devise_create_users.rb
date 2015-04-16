@@ -47,7 +47,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.boolean :can_update_sale_discount, :default => false
       t.boolean :can_remove_sales, :default => false
-
+      t.boolean :is_admin, :default => false  
 
       t.timestamps
     end

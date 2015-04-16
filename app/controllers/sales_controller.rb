@@ -2,7 +2,7 @@ class SalesController < ApplicationController
   before_action :set_configurations
 
   def index
-    @sales = Sale.paginate(:page => params[:page], :per_page => 20, :order => 'id DESC')
+    @sales = Sale.paginate(:page => params[:page], :per_page => 20, :order => 'id DESC').where(:user_id => current_user.user_id)
   end
 
   def new

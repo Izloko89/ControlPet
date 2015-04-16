@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.paginate(:page => params[:page], :per_page => 20).where(:published => true)
+    @items = Item.paginate(:page => params[:page], :per_page => 20).where(:published => true, :user_id => current_user.user_id)
   end
 
   # GET /items/1
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.published = true
-
+    @item.user_id = current_user.user_id
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
