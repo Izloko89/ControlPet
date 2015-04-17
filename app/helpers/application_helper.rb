@@ -29,7 +29,7 @@ module ApplicationHelper
 
 	def sales_total_today
 		total = 0.00
-		sales = Payment.where("created_at >= ?", Time.zone.now.beginning_of_day,:user_id => current_user.user_id)
+		sales = Payment.where("created_at >= ?", Time.zone.now.beginning_of_day).where(:user_id => current_user.user_id)
 		for sale in sales
 			total += sale.amount
 		end

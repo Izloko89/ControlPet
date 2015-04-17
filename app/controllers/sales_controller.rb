@@ -6,14 +6,14 @@ class SalesController < ApplicationController
   end
 
   def new
-    @sale = Sale.create
-    @sale.user_id = current_user.user_id
+    @sale = Sale.create(:user_id=> current_user.user_id)
+    
     redirect_to :controller => 'sales', :action => 'edit', :id => @sale.id
   end
 
   def edit
     set_sale
-
+    @sale.user_id = current_user.user_id
     populate_items
     populate_customers
 
@@ -190,7 +190,7 @@ class SalesController < ApplicationController
     custom_customer.city = params[:custom_customer][:city]
     custom_customer.state = params[:custom_customer][:state]
     custom_customer.zip = params[:custom_customer][:zip]
-
+    custom_customer.user_id = current_user.user_id
     custom_customer.save
 
     @sale.add_customer(custom_customer.id)
@@ -270,7 +270,7 @@ class SalesController < ApplicationController
       discount_amount = total_amount * @sale.discount
       @sale.total_amount = total_amount - discount_amount
     end
-
+    @sale.user_id = current_user.user_id
     @sale.save
   end
 
