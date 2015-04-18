@@ -34,6 +34,7 @@ PushvendorPos::Application.routes.draw do
     end
   end
 
+
   resources :sales do
     collection do
       get 'update_line_item_options'

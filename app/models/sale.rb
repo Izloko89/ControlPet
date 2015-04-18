@@ -10,6 +10,8 @@ class Sale < ActiveRecord::Base
 	accepts_nested_attributes_for :items, :allow_destroy => true
 	accepts_nested_attributes_for :payments, :allow_destroy => true
 
+
+
 	def remaining_balance
 		if self.total_amount.blank?
 			balance = 0.00

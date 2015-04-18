@@ -16,7 +16,7 @@
 	  	</tr>
 	  	<% for sale in @recent_sales %>
 	    	<tr class="<%= sale.remaining_balance == 0.00 && !sale.total_amount.blank? ? 'success' : '' %>">
-	    		<td><%= sale.id %></td>
+	    		<td><%= sale.sale_by_vet %></td>
           <td><%= sale.created_at.strftime("%m/%d/%y %I:%M:%S %p")  %></td>
           <td><%= sale.customer.blank? ? '-' : sale.customer.last_name %></td>
           <td><%= number_to_currency sale.total_amount %></td>

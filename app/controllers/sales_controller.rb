@@ -5,23 +5,37 @@ class SalesController < ApplicationController
     @sales = Sale.paginate(:page => params[:page], :per_page => 20, :order => 'id DESC').where(:user_id => current_user.user_id)
   end
 
+
+
   def new
-    @sale = Sale.create(:user_id=> current_user.user_id)
-    
-    redirect_to :controller => 'sales', :action => 'edit', :id => @sale.id
+    @sale_by_vet = Sale.where(:user_id=>current_user.user_id).last
+    if @sale_by_vet.nil?
+      @sale = Sale.create(:user_id=> current_user.user_id,:sale_by_vet => 1)
+      redirect_to :controller => 'sales', :action => 'edit', :id => @sale.id
+    else
+      sale_by_vet = @sale_by_vet.sale_by_vet += 1 
+      @sale = Sale.create(:user_id => current_user.user_id,:sale_by_vet => sale_by_vet)
+      redirect_to :controller => 'sales', :action => 'edit', :id => @sale.id
+
+    end
   end
 
   def edit
-    set_sale
-    @sale.user_id = current_user.user_id
-    populate_items
-    populate_customers
+    user_id = Sale.find(params[:id])
+    if user_id.user_id == current_user.user_id
+      set_sale
+    
+      populate_items
+      populate_customers
 
-    @sale.line_items.build
-    @sale.payments.build
+      @sale.line_items.build
+      @sale.payments.build
 
-    @custom_item = Item.new
-    @custom_customer = Customer.new
+      @custom_item = Item.new
+      @custom_customer = Customer.new
+    else
+      redirect_to root_path, :alert => "No puede ver esto xD"
+    end
 
   end
 
