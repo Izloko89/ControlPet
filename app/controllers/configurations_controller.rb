@@ -1,7 +1,7 @@
 class ConfigurationsController < ApplicationController
 
 	def index
-		@configuration = StoreConfiguration.find(1)
+		@configuration = StoreConfiguration.where(:user_id => current_user.user_id).first
     authorize! :read, @configuration
 	end
 
@@ -23,7 +23,7 @@ class ConfigurationsController < ApplicationController
 	private
     # Use callbacks to share common setup or constraints between actions.
     def set_configuration
-      @configuration = StoreConfiguration.find(1)
+      @configuration = StoreConfiguration.where(:user_id => current_user.user_id).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -39,7 +39,6 @@ class UsersController < ApplicationController
 
   def new_user
     @user = User.new(:email => params[:user][:email], :username => params[:user][:username], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-    #agregar una validacion para que agregue el user_id del admin y lo coloque
     if current_user.user_id.blank?
       @user.user_id = @user_id.id
       @user.is_admin = true

@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-  	@recent_sales = Sale.where(:user_id => current_user.user_id).order(:id).limit(10)
+    @recent_sales = Sale.where(:user_id => current_user.user_id).order(:id).limit(10)
   	@popular_items = Item.where(:user_id => current_user.user_id).order(:id).limit(10)
   end
 
