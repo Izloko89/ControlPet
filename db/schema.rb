@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 20150420220740) do
   end
 
   create_table "sales", force: true do |t|
-    t.integer  "user_id"
     t.decimal  "amount",           precision: 8, scale: 2
     t.decimal  "total_amount",     precision: 8, scale: 2
     t.decimal  "remaining_amount"
@@ -122,7 +121,6 @@ ActiveRecord::Schema.define(version: 20150420220740) do
     t.boolean  "can_view_reports",         default: false
     t.boolean  "can_update_sale_discount", default: false
     t.boolean  "can_remove_sales",         default: false
-    t.boolean  "is_admin",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   	def set_configurations
       if current_user.nil?
-        @configurations = StoreConfiguration.find(3)
+        @configurations = StoreConfiguration.find(1)
       else
          @configurations = StoreConfiguration.where(:user_id => current_user.user_id).first
       end
