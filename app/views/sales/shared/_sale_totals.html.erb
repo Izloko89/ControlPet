@@ -1,13 +1,13 @@
-<h4 class="text-primary"><span class="glyphicon glyphicon-usd"></span> Sale Totals</h4>
+<h4 class="text-primary"><span class="glyphicon glyphicon-usd"></span> Ventas Totales</h4>
 <hr />
 
-<label>Base Price</label>
+<label>Precio Base</label>
 <div class="input-group">
   <span class="input-group-addon">$</span>
   <input type="text" class="form-control" readonly value=<%= number_to_currency(@sale.amount, unit: '') %>>
 </div>
 
-<label>Discount</label>
+<label>Descuento</label>
 <div class="input-group">
   <select id="sale_discount" class="form-control sale-discount">
   	<% 0.step(100, 5) do |disc| %>
@@ -21,14 +21,14 @@
   <span class="input-group-addon">$<%= @sale.discount.blank? ? 0 : number_to_currency(@sale.get_discounted_amount, unit: '') %></span>
 </div>
 
-<label>Tax(<%= @configurations.tax_rate.blank? ? 'not configured' : @configurations.tax_rate %>)</label>
+<label>Impuestos(<%= @configurations.tax_rate.blank? ? 'no configurado' : @configurations.tax_rate %>)</label>
 <div class="input-group">
   <span class="input-group-addon">$</span>
   <input type="text" class="form-control" readonly value=<%= number_to_currency(@sale.tax, unit: '') %>>
 </div>
 <hr />
 
-<label class="text-success">Total Price</label>
+<label class="text-success">Precio Total</label>
 <div class="input-group has-success total_price_output">
   <span class="input-group-addon price_output">$</span>
   <input type="text" class="form-control price_output" readonly value=<%= number_to_currency(@sale.total_amount, unit: '') %>>
