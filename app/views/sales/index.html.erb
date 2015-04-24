@@ -4,12 +4,12 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Created</th>
-          <th>Customer</th>
-          <th>Total</th>
-          <th>Tax</th>
-          <th>Paid</th>
-          <th>Balance</th>
+        <th>Creado</th><!-- Created -->
+         <th>Cliente</th><!-- Customer -->
+          <th>Total</th><!-- Total -->
+          <th>Impuesto</th><!-- Tax -->
+          <th>Pagado</th><!-- Paid -->
+          <th>Balance</th><!-- Balance -->
           <th></th>
         </tr>
       </thead>
@@ -37,7 +37,8 @@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Summary</div>
+  
+  <div class="panel-heading">Resumen</div><!-- Summary -->
 
   <!-- Table -->
   <%= render :partial => 'template/sales_summary' %>
@@ -46,4 +47,4 @@
 <br>
 
 
-<%= link_to 'New Sale', new_sale_path, :class => "btn btn-success btn-lg active" %>
+<%= link_to 'Nueva Venta', new_sale_path, :class => "btn btn-success btn-lg active" %>

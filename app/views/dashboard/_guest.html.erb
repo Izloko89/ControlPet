@@ -1,15 +1,18 @@
 <div class="container">
   
   <%= form_for("user", :url => user_session_path, :html => { :class => "form-signin" }) do |f| %>
-  	<h2 class="form-signin-heading"><a target="_blank" href="http://www.pushvendor.com">PushVendor.com</a></h2>
+  <h2 class="form-signin-heading"><a target="_blank" href="http://www.gikma.com">Gikma.com</a></h2><!-- PushVendor.com -->
+  	
       <%= f.text_field :email, :class => 'form-control', :placeholder => 'Email Address' %>
       <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
       <label class="checkbox">
       	<%= f.check_box :remember_me %> Remember me
       </label>
-      <%= link_to "Forgot your password?", new_password_path('user') %>
-      <button class="btn btn-lg btn-primary btn-block" value="Sign in" type="submit">Sign in</button>
-      <p class="copyright">Copyright &copy; 2014 PushVendor</p>
+      
+      <%= link_to "Olvidaste tu contraseña?", new_password_path('user') %><!-- Forgot your password? -->
+      <button class="btn btn-lg btn-primary btn-block" value="Sign in" type="submit">Acceder</button>
+      
+    <p class="copyright">Copyright &copy; 2015 Gikma</p><!-- 2014 PushVendor -->
     <% end %>
 
 </div>

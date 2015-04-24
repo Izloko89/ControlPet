@@ -2,7 +2,7 @@
 	<div class="row hidden-print">
 		<div class="col-sm-8 left">
 			<strong><%= Date.today.to_s(:long) %></strong> - 
-			<%= @configurations.store_name.blank? ? "PushVendor Point of Sale" : @configurations.store_name %> 
+			<%= @configurations.store_name.blank? ? "Gikma Point of Sale" : @configurations.store_name %> 
 		</div>
 		<div class="col-sm-4 right">
 			<%= params[:controller] %> <%= params[:action] == 'index' ? '' : "/ #{params[:action]}" %>
@@ -11,7 +11,7 @@
 	<div class="row visible-print">
 		<div class="col-sm-8 left">
 			<strong><%= Date.today.to_s(:long) %></strong><br />
-			<%= @configurations.store_name.blank? ? "PushVendor Point of Sale" : @configurations.store_name %> </br />
+			<%= @configurations.store_name.blank? ? "Gikma Point of Sale" : @configurations.store_name %> </br />
 			<%= @configurations.phone_number.blank? ? "-" : @configurations.phone_number %></br />
 			<%= @configurations.email_address.blank? ? "-" : @configurations.email_address %></br />
 			<%= @configurations.address.blank? ? "-" : @configurations.address %></br />
