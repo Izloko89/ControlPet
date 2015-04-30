@@ -14,8 +14,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'pg'
 gem 'friendly_id'
-# for heroku demo site.
-gem 'rails_12factor', group: :production
+
+#Gemas para producción
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
