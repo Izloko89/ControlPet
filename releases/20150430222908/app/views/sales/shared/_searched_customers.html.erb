@@ -1,0 +1,29 @@
+<h4 class="text-primary"><span class="glyphicon glyphicon-tags"></span> Clientes</h4>
+<hr />
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Apellidos</th><!-- Last Name-->
+       <th>Nombre</th><!-- First Name-->
+        <th>Numero Telefonico</th><!-- Phone Number-->
+        <th>Email</th><!-- Email Address-->
+        <th>Añadir a la Orden</th><!-- Add to Order-->
+      </tr>
+    </thead>
+
+    <tbody>
+      <% unless @available_customers.blank? %>
+        <% for customer in @available_customers %>
+          <tr>
+            <td><%= customer.last_name %></td>
+            <td><%= customer.first_name %></td>
+            <td><%= customer.phone_number %></td>
+            <td><%= customer.email_address %></td>
+            <td class="add_to_current_sale"><%= link_to url_for(:controller => 'sales', :action => 'create_customer_association', :customer_id => customer.id, :sale_id => @sale.id), :remote => true do %><p><span class="glyphicon glyphicon-plus"></span></p><% end %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

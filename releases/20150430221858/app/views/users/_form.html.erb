@@ -1,0 +1,93 @@
+<%= fields_for @user do |f|%>
+  <%= render :partial => 'template/form_errors', :object => @user %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">User Details</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Email</label>
+            <%= f.text_field :email, :class => "form-control", :placeholder => "Email Address" %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>User Name</label>
+            <%= f.text_field :username, :class => "form-control", :placeholder => "User Name" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Password</label>
+            <%= f.text_field :password, :class => "form-control", :placeholder => "Secret Password", :type => "password" %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Password Confirmation</label>
+            <%= f.text_field :password, :class => "form-control", :placeholder => "Secret Password", :type => "password" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% unless @user.id.blank? || @user.id == 1 %>
+    <div class="panel panel-default">
+      <div class="panel-heading">Permissions</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :can_update_configuration %>
+                Can change store configuration
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :can_update_users %>
+                Can update users
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :can_update_items %>
+                Can update items
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :can_view_reports %>
+                Can view reports
+              </label>
+            </div>
+            <!-- <div class="checkbox">
+              <label>
+                <%= f.check_box :can_update_sale_discount %>
+                Can give discounts
+              </label>
+            </div> -->
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :can_remove_sales %>
+                Can delete sales
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+
+  <div class="row">
+  <div class="col-sm-12">
+    <%= f.submit 'Update User', :class => "btn btn-success btn-lg" %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,231 @@
+@import 'bootstrap';
+@import 'config';
+
+body {
+  padding: 10px;
+  background: #fff !important;
+  .pos_wrapper {
+    margin-top:60px !important;
+
+  }
+  .navbar {
+    background: #428BCA;
+    .container {
+      width:100%;
+      a {
+        color:#fff;
+        &:hover {
+          color: #ddd !important;
+        }
+      }
+      .nav {
+        color:#fff;
+        a {
+          color: #fff;
+          .caret {
+            border-bottom-color: #fff;
+            border-top-color: #fff;
+          }
+        }
+      }
+      .dropdown-menu {
+        a {
+          color:#777;
+          &:hover {
+            color:#444 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.item_search, .customer_search, .sale_comments {
+  display:none !important;
+}
+
+.item_search_wrapper {
+  padding:20px 0px;
+  form {
+    margin-top:30px;
+  }
+}
+
+.add_to_current_sale {
+
+  color:#428BCA;
+}
+
+
+/* ==========================================================================
+Dashboard
+========================================================================== */
+
+
+.dashboard_menu {
+  padding:0px !important;
+  margin: 12px auto;
+  background: #efefef;
+  border-radius: 4px;
+  .nav {
+    a {
+      color: #777;
+      &:hover {
+        background:none !important;
+        color: #444;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Login Form
+========================================================================== */
+
+.form-signin {
+  max-width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  button {
+    &.btn {
+      box-shadow: none;
+    }
+  }
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin {
+  margin-top:10%;
+  background: #F0F0F0;
+  border-radius: 12px;
+  .form-signin-heading {
+    margin:10px auto 20px auto;
+    color:#777;
+  }
+  .copyright {
+  position: absolute;
+  margin-top:30px;
+      color:#777;
+  }
+}
+
+.clearboth {
+clear:both;
+}
+
+.pos_wrapper {
+  .panel {
+  
+    &.col-sm-6 {
+      padding:0px;
+    }
+  }
+  .btn {
+
+  }
+}
+
+.amount {
+  .form-control {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+  }
+  .adjust {
+    display: inline-block;
+    width: 10%;
+    vertical-align: top;
+    float:right;
+    text-align: center;
+    a {
+      display: block;
+    }
+  }
+}
+
+.sale_submit {
+  display: none !important;
+}
+
+
+.edit_sale {
+  table {
+    input {
+      border:none !important;
+      box-shadow: none !important;
+    }
+    textarea {
+      border:none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+.row {
+  .sale_totals {
+    .input-group {
+      &.total_price_output {
+        .price_output {
+          background: none;
+          border:none;
+          font-size: 3em;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+.custom_item_link {
+  color: #3085db;
+  cursor:pointer;
+}
+
+.create_an_item {
+  /*display: none;*/
+}
+
+.comments {
+  margin-top:30px;
+}
+
+
+.breadcrumbs {
+  .row {
+    .left {
+
+    }
+    .right {
+      text-align: right;
+      font-size: 1.1em;
+      text-transform: uppercase;
+    }
+  }
+}

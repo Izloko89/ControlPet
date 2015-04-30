@@ -1,0 +1,22 @@
+
+
+<%= form_for("user", :url => user_session_path, :html => { :class => "form-signin", :role => "form" }) do |f| %>
+	<h2 class="form-signin-heading"><a target="_blank" href="<%= @configurations.website_url.blank? ? 'http://gikma.com' : get_http(@configurations.website_url) %>"><%= @configurations.store_name.blank? ? 'Gikma' : @configurations.store_name %></a></h2>
+	<div class="form-group">
+	 
+	  <%= f.text_field :username, :class => 'form-control', :placeholder => 'Usuario' %><!-- User Name -->
+	  <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %><!-- Password -->
+ 	
+	</div>
+	<div class="form-group">
+	  <%= f.check_box :remember_me %> Recuerdame<!-- Remember me-->
+	</div>
+	<div class="form-group">
+  	
+  	<button class="btn btn-lg btn-primary btn-block" value="Sign in" type="submit">Registrarse</button> <!-- Sign in -->
+   	
+  	<%= render "devise/shared/links" %>
+  </div>
+  <p class="copyright">Copyright &copy; <%= Time.now.year %> Gikma</p><!-- Pushvendor -->
+<% end %>
+

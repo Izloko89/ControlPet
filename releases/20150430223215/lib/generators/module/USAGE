@@ -1,0 +1,8 @@
+Description:
+    Generator to create another PushVendor sales instance like WorkOrders.
+
+Example:
+    rails generate module WorkOrders
+
+    This will create:
+        what/will/it/create

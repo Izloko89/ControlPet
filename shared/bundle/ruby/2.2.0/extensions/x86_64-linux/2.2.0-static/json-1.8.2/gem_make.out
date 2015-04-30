@@ -1,0 +1,9 @@
+/home/deploy/.rbenv/versions/2.2.0/bin/ruby -r ./siteconf20150430-1819-19vryks.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
