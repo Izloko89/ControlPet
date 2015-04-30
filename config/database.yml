@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: controlpet_production
-  username: controlpet
-  password: <%= ENV['ANIMEXP_DATABASE_PASSWORD'] %>
+  username: deploy
+  password: <%= ENV['CONTROLPET_DATABASE_PASSWORD'] %>
