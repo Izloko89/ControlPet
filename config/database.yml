@@ -82,4 +82,4 @@ production:
   <<: *default
   database: controlpet_production
   username: deploy
-  password: <%= ENV['CONTROLPET_DATABASE_PASSWORD'] %>
+  password: g1km4s0ft %>
