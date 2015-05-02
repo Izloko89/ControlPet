@@ -1,0 +1,17 @@
+
+// Shared options
+$('.added_items').html("<%= escape_javascript render(:file => 'sales/shared/_added_items.html.erb') %>");
+$('.sale_totals').html("<%= escape_javascript render(:file => 'sales/shared/_sale_totals.html.erb') %>");
+$('.sale_payments').html("<%= escape_javascript render(:file => 'sales/shared/_sale_payments.html.erb') %>");
+$('.added_customer').html("<%= escape_javascript render(:file => 'sales/shared/_added_customer.html.erb') %>");
+$('#makePayment .modal-body').html("<%= escape_javascript render(:file => 'sales/shared/_payment.html.erb') %>");
+$('#customItem .modal-body').html("<%= escape_javascript render(:file => 'sales/shared/_create_custom_item.html.erb') %>");
+$('#customCustomer .modal-body').html("<%= escape_javascript render(:file => 'sales/shared/_create_custom_customer.html.erb') %>");
+
+$('.print_totals').html("<%= escape_javascript render(:file => 'sales/shared/_invoice_totals.html.erb') %>");
+$('.searched_items').html("<%= escape_javascript render(:file => 'sales/shared/_searched_items.html.erb') %>");
+
+$('.searched_customers').html("<%= escape_javascript render(:file => 'sales/shared/_searched_customers.html.erb') %>");
+
+
+$('.edit_sale').show();
