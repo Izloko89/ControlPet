@@ -10,7 +10,7 @@ set :ssh_options, {
   keys: "~/.ssh/id_rsa" 
 }
 
-set :repo_url, 'git@github.com:archagy/Control_pet.git'
+set :repo_url, 'git@github.com:izloko89/Control_pet.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
