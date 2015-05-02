@@ -10,7 +10,7 @@ set :ssh_options, {
   keys: "~/.ssh/id_rsa" 
 }
 
-set :repo_url, 'git@github.com:izloko89/Control_pet.git'
+#set :repo_url, 'git@github.com:izloko89/Control_pet.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -26,8 +26,11 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for :scm is :git
 set :scm, :git
+set :scm_username, "archagy"
+set :scm_password, "lainos69"
+set :user, "archagy"
+set :password, "lainos69"
 set :branch, 'production'
-set :user, 'archagy'
 set :use_sudo, false
 set :rails_env, "production"
 set :deploy_via, :copy
