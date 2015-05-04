@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'ControlPet'
-set :repo_url, 'git@github.com:izloko89/Control_pet.git'
+set :repo_url, 'https://izloko89@github.com/izloko89/Control_pet.git'
 set :stages, ["production"]
 set :ssh_options, { 
   forward_agent: true, 
