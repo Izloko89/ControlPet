@@ -13,7 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'pg'
 gem 'friendly_id'
-
+gem 'sprockets'
 #Gemas para producción
 gem 'capistrano'
 gem 'capistrano-bundler'
