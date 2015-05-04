@@ -22,7 +22,6 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for :scm is :git
 set :scm, :git
-set :scm_username, "Izloko89"
 set :branch, 'production'
 set :use_sudo, false
 set :rails_env, "production"
