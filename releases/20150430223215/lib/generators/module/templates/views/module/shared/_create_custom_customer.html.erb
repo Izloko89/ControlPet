@@ -1,0 +1,39 @@
+<div class="create_an_item">
+  <%= form_for :custom_customer, :url => url_for(:controller => "sales", :action => "create_custom_customer", :sale_id => @sale.id, :format => :js), :method => "get", :remote => true, :html => { :id => 'create_custom_customer' } do |f| %>
+  
+    <div class="form-group">
+      <label>First Name</label>
+      <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <%= f.text_field :email_address, :class => "form-control", :placeholder => "example@example.com" %>
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <%= f.text_field :phone_number, :class => "form-control", :placeholder => "000 - 000 - 00000" %>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
+    </div>
+    <div class="form-group">
+      <label>State</label>
+      <%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
+    </div>
+    <div class="form-group">
+      <label>Zip</label>
+      <%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
+    </div>
+    <div class="form-group"><%= f.submit 'Add Customer', :class => "btn close_custom_modal" %></div>
+        
+  <% end %>
+</div>

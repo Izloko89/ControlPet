@@ -1,0 +1,5 @@
+<h2>Search For: <%= params[:search][:item_name] %></h2>
+
+<% for item in @items %>
+	<%= item.name %><br />
+<% end %>

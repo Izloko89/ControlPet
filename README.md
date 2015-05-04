@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Capistrano::rbenv
 
 This gem provides idiomatic rbenv support for Capistrano 3.x (and 3.x
@@ -47,3 +48,6 @@ If your rbenv is located in some custom path, you can use `rbenv_custom_path` to
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+=======
+# Control_pet
+>>>>>>> production

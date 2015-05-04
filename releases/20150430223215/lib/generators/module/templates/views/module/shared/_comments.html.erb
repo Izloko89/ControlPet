@@ -1,0 +1,12 @@
+<div class="comments">
+	<h4 class="text-primary"><span class="glyphicon glyphicon-book"></span> Comments</h4>
+	<%= form_for :sale_comments, :url => url_for(:controller => "sales", :action => "add_comment", :sale_id => @sale.id, :format => :js), :method => "get", :remote => true do |f| %>
+		
+		<div class="form-group">
+	    <%= f.text_area :comments, :class => "form-control", :placeholder => "Comments Section", :value => @sale.comments %>
+	  </div>
+
+	  <%= submit_tag "search", :class => "btn btn-primary btn-lg sale_comments" %>
+
+	<% end %>
+</div>
