@@ -75,6 +75,6 @@ PushvendorPos::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  
+  config.assets.initialize_on_precompile = false
   
 end
