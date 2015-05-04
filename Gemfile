@@ -18,7 +18,7 @@ gem 'friendly_id'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
+#gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
