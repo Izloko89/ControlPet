@@ -2,9 +2,13 @@
 lock '3.4.0'
 
 set :application, 'ControlPet'
-set :repo_url, 'git@github.com:Izloko89/Control_pet.git'
+set :repo_url, 'git@github.com:izloko89/Control_pet.git'
 set :stages, ["production"]
-
+set :ssh_options, { 
+  forward_agent: true, 
+  paranoid: true, 
+  keys: "~/.ssh/id_rsa" 
+}
 
 #set :repo_url, 'git@github.com:izloko89/Control_pet.git'
 
@@ -22,8 +26,8 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for :scm is :git
 set :scm, :git
+set :scm_username, "Izloko89"
 set :branch, 'production'
-set :user, 'Izloko89'
 set :use_sudo, false
 set :rails_env, "production"
 set :deploy_via, :copy
