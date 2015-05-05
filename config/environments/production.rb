@@ -75,7 +75,7 @@ PushvendorPos::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.assets.initialize_on_precompile = true
+  config.assets.initialize_on_precompile = false
 
   config.assets.precompile << Proc.new do |path|
   if path =~ /\.(css|js)\z/

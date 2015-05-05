@@ -20,7 +20,7 @@ module PushvendorPos
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     #config.assets.initialize_on_precompile = true
-    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
-    config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/ 
+    #config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
+    #config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/ 
   end
 end
