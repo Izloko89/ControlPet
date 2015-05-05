@@ -18,6 +18,7 @@ gem 'sprockets'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
+gem 'rails_12factor'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 group :doc do
