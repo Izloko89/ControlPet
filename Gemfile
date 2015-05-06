@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.2.0'
 gem 'devise'
 gem 'cancancan', '~> 1.7'
 gem 'will_paginate-bootstrap'
@@ -17,7 +17,7 @@ gem 'sprockets', '~> 2.8'
 #Gemas para producción
 gem 'capistrano'
 gem 'capistrano-bundler'
-gem 'capistrano-rails', :git => 'https://github.com/chulkilee/capistrano-rails.git', :branch => 'sprocket-3'
+gem 'capistrano-rails'
 gem 'rails_12factor'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
