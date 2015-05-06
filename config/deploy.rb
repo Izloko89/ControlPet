@@ -86,6 +86,15 @@ set(:symlinks, [
 
 namespace :deploy do
   # make sure we're deploying what we think we're deploying
+  
+  task :fix_absent_manifest_bug do
+    on roles(:web) do
+      within release_path do  execute :touch,
+        release_path.join('public', fetch(:assets_prefix), 'manifest-fix.temp')
+      end
+   end
+  end
+
   before :deploy, "deploy:check_revision"
   # only allow a deploy with passing tests to deployed
   #before :deploy, "deploy:run_tests"
