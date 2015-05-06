@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/chulkilee/capistrano-rails.git
+  revision: a56cae3b0f29f3fffd55e48687b8360175eba291
+  branch: sprocket-3
+  specs:
+    capistrano-rails (1.1.2)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,9 +51,6 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-rails (1.1.3)
-      capistrano (~> 3.1)
-      capistrano-bundler (~> 1.1)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -191,7 +197,7 @@ DEPENDENCIES
   cancancan (~> 1.7)
   capistrano
   capistrano-bundler
-  capistrano-rails
+  capistrano-rails!
   capybara
   coffee-rails (~> 4.0.0)
   devise
@@ -204,7 +210,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
-  sprockets
+  sprockets (~> 2.8)
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate-bootstrap

@@ -13,11 +13,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'pg'
 gem 'friendly_id'
-gem 'sprockets'
+gem 'sprockets', '~> 2.8'
 #Gemas para producción
 gem 'capistrano'
 gem 'capistrano-bundler'
-gem 'capistrano-rails'
+gem 'capistrano-rails', :git => 'https://github.com/chulkilee/capistrano-rails.git', :branch => 'sprocket-3'
 gem 'rails_12factor'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
