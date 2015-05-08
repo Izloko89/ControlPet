@@ -1,6 +1,3 @@
 ---
 BUNDLE_BIN: bin
 BUNDLE_WITHOUT: development:test
-BUNDLE_FROZEN: '1'
-BUNDLE_PATH: "/home/deploy/ControlPet/shared/bundle"
-BUNDLE_DISABLE_SHARED_GEMS: '1'
