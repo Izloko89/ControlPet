@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 #Gemas para producción
 gem 'capistrano'
 gem 'capistrano-bundler'
-gem 'capistrano-rails', github: 'capistrano/rails', branch: 'sprockets-3'
+gem 'capistrano-rails'
 gem 'rails_12factor'
 gem 'jquery-turbolinks'
 gem 'autoprefixer-rails'
