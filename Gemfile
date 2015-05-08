@@ -16,12 +16,11 @@ gem 'bootstrap-sass'
 #Gemas para producción
 gem 'capistrano'
 gem 'capistrano-bundler'
-gem 'capistrano-rails'
+gem 'capistrano-rails', github: 'capistrano/rails', branch: 'sprockets-3'
 gem 'rails_12factor'
 gem 'jquery-turbolinks'
 gem 'autoprefixer-rails'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
-gem 'sprockets', '~> 2.8'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
