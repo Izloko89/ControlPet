@@ -21,7 +21,7 @@ gem 'rails_12factor'
 gem 'jquery-turbolinks'
 gem 'autoprefixer-rails'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
-
+gem 'rename'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

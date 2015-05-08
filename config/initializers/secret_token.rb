@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-PushvendorPos::Application.config.secret_key_base = 'd515394e1ccc4608a468a1345c12a526e03f4ab0eaff20123be7c7b3b6637cd3656ea9abc43302163e07592acd1f623430aa12dc923e9a8f8ac5c252cdc2e184'
+ControlPet::Application.config.secret_key_base = 'd515394e1ccc4608a468a1345c12a526e03f4ab0eaff20123be7c7b3b6637cd3656ea9abc43302163e07592acd1f623430aa12dc923e9a8f8ac5c252cdc2e184'
