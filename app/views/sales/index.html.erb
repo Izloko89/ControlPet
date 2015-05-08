@@ -23,8 +23,8 @@
             <td><%= number_to_currency sale.total_amount %></td>
             <td><%= number_to_currency sale.tax %></td>
             <td><%= number_to_currency sale.paid_total %></td>
-            <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Paid" : "#{number_to_currency sale.remaining_balance}" %></td>
-            <td><%= link_to 'Show', edit_sale_path(sale) %> | <%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Pagado" : "#{number_to_currency sale.remaining_balance}" %></td>
+            <td><%= link_to 'Mostrar', edit_sale_path(sale) %> | <%= link_to 'Eliminar', sale, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
           </tr>
         <% end %>
       </tbody>

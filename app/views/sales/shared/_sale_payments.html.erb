@@ -43,9 +43,8 @@
   <hr class="hidden-print" />
 
   <% unless @sale.total_amount.blank? %>
-    <!-- Button trigger modal -->
-    <button class="btn btn-primary btn-lg hidden-print" data-toggle="modal" data-target="#makePayment">
-      Make Payment
-    </button>  
+    <!-- Button trigger modal --> 
+     <%= link_to "Realizar Pago", "#", :class=> "btn btn-primary btn-lg hidden-print", data: {toggle:"modal" , target: "#makePayment"} %>
+
   <% end %>
 <% end %>

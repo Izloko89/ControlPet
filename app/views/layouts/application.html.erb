@@ -8,14 +8,15 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="robots" content="noindex">
       <meta name="googlebot" content="noindex">
-      <title><%= @configurations.store_name.blank? ? "Gikma Punto de Venta" : @configurations.store_name %></title><!-- PushVendor Point of Sale -->
+      <title><%= @configurations.store_name.blank? ? "Gikma Punto de Venta" : @configurations.store_name %></title><!-- Gikma Point of Sale -->
        
       
-      <meta name="description" content="<%= @configurations.store_description.blank? ? "PushVendor Point of Sale" : @configurations.store_description %>">
+      <meta name="description" content="<%= @configurations.store_description.blank? ? "Gikmasoft Punto de venta" : @configurations.store_description %>">
       <meta name="viewport" content ="width=device-width; initial-scale=1.0;">
 
       <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= yield :javascript %>
 		  <%= csrf_meta_tags %>
 
     </head>
@@ -42,9 +43,9 @@
 
   
 
-      <%= javascript_include_tag :application, "data-turbolinks-track" => true %>
+      
 
 
-      <%= yield :javascript %>
+      
     </body>
 </html>

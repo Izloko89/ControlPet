@@ -2,10 +2,11 @@ class SalesController < ApplicationController
   before_action :set_configurations
 
   def index
-    @sales = Sale.paginate(:page => params[:page], :per_page => 20, :order => 'id DESC').where(:user_id => current_user.user_id)
+    @sales = Sale.order('id ASC').where(:user_id => current_user.user_id).paginate(:page => params[:page], :per_page => 20)
   end
-
-
+def show
+redirect_to :back
+end
 
   def new
     @sale_by_vet = Sale.where(:user_id=>current_user.user_id).last
@@ -34,7 +35,7 @@ class SalesController < ApplicationController
       @custom_item = Item.new
       @custom_customer = Customer.new
     else
-      redirect_to root_path, :alert => "No puede ver esto xD"
+      redirect_to root_path, :alert => "Error, Venta no encontrada."
     end
 
   end
@@ -177,6 +178,7 @@ class SalesController < ApplicationController
     custom_item.price = params[:custom_item][:price]
     custom_item.stock_amount = params[:custom_item][:stock_amount]
     custom_item.item_category_id = params[:custom_item][:item_category_id]
+    custom_item.user_id = current_user.user
 
     custom_item.save
 
@@ -240,7 +242,7 @@ class SalesController < ApplicationController
   end
 
   def sale_discount
-    @sale = Sale.find(params[:sale_discount][:sale_id])
+    @sale = Sale.find_by_sale_by_vet(params[:sale_discount][:sale_id])
 
     @sale.discount = params[:sale_discount][:discount]
     @sale.save

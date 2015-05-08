@@ -1,16 +1,15 @@
-PushvendorPos::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
-  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/ 
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  config.serve_static_files = true 
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -26,11 +25,11 @@ PushvendorPos::Application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = false
+  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-  config.assets.compress = false
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -70,28 +69,11 @@ PushvendorPos::Application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
- # config.active_support.deprecation = :notify
+  config.active_support.deprecation = :notify
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.assets.initialize_on_precompile = true
-
-  config.assets.precompile << Proc.new do |path|
-  if path =~ /\.(css|js)\z/
-    full_path = Rails.application.assets.resolve(path).to_path
-    app_assets_path = Rails.root.join('app', 'assets').to_path
-    if full_path.starts_with? app_assets_path
-      puts "including asset: " + full_path
-      true
-    else
-      puts "excluding asset: " + full_path
-      false
-    end
-  else
-    false
-  end
-end
-  
+  config.active_record.dump_schema_after_migration = false
 end

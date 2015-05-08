@@ -1,22 +1,25 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.2.0'
 gem 'devise'
-gem 'cancancan', '~> 1.7'
+gem 'cancancan'
 gem 'will_paginate-bootstrap'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0'
 #gem 'bootstrap-sass', '~> 3.1.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 gem 'pg'
+gem 'bootstrap-sass'
 #Gemas para producción
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'rails_12factor'
+gem 'jquery-turbolinks'
+gem 'autoprefixer-rails'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 group :doc do
