@@ -28,6 +28,7 @@ module ControlPet
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.assets.initialize_on_precompile = false
-    config.assets.precompile = ['*.js', '*.css', '**/*.js', '**/*.css']
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
+    config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/ 
   end
 end
