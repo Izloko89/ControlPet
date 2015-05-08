@@ -20,6 +20,7 @@ gem 'capistrano-rails', github: 'capistrano/rails', branch: 'sprockets-3'
 gem 'rails_12factor'
 gem 'jquery-turbolinks'
 gem 'autoprefixer-rails'
+gem 'sprockets', '~> 3.0'
 #gem 'capistrano-rbenv', github: "capistrano/rbenv"
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
