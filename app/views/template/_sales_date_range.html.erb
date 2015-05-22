@@ -1,0 +1,27 @@
+<div class="container">
+    <div class='col-md-5'>
+        <%= render 'template/form_search_reports' %>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+        $(function () {
+          $('#datetimepicker6').datetimepicker({
+                viewMode: 'years',
+                format: 'MM/DD/YYYY'
+            });
+       $('#datetimepicker7').datetimepicker({
+                viewMode: 'years',
+                format: 'MM/DD/YYYY'
+            });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+        });
+    </script>
+</div>

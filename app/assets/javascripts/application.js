@@ -17,3 +17,6 @@
 //= require_tree .
 //= require bootstrap
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers

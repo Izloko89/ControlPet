@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'date_range_report'
       get 'customer_report'
       get 'item_report'
+      get 'search'
     end
   end
 
