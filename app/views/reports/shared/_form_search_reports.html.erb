@@ -1,0 +1,11 @@
+<%= simple_form_for :search, :url => url_for(:controller => "reports", :action => "search"), :method => "get", :remote => true,:format => :js, 
+html: {id: "date_range"} do |f| %>
+	 <%= f.input :start_date, wrapper: :ranged_datetime,input_html: {id: "datetimepicker6"}, :label => "Fecha Inicio" %>
+    <%= f.input :end_date, wrapper: :ranged_datetime, input_html: {id: "datetimepicker7"} , :label => "Fecha Final" %>
+     <%= f.submit 'Buscar', :class => "btn btn-success btn-lg" %>
+    <% end %>
+<div class="datos">
+<%= render :partial => 'reports/shared/sale_by_date' %>
+</div>
+
+   

@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+        <th>Creado</th><!-- Created -->
+         <th>Cliente</th><!-- Customer -->
+          <th>Total</th><!-- Total -->
+          <th>Impuesto</th><!-- Tax -->
+          <th>Pagado</th><!-- Paid -->
+          <th>Balance</th><!-- Balance -->
+          <th></th>
+        </tr>
+      </thead>
+
+  
+<tbody>
+  <% unless @sales.nil? %>
+        <% @sales.each do |sale| %>
+          <tr class="<%= sale.remaining_balance == 0.00 && !sale.total_amount.blank? ? 'success' : '' %>">
+            <td><%= sale.sale_by_vet %></td>
+            <td><%= sale.created_at.strftime("%m/%d/%y %I:%M:%S %p")  %></td>
+            <td><%= sale.customer.blank? ? '-' : sale.customer.last_name %></td>
+            <td><%= number_to_currency sale.total_amount %></td>
+            <td><%= number_to_currency sale.tax %></td>
+            <td><%= number_to_currency sale.paid_total %></td>
+            <td><%= sale.remaining_balance == 0.00 && sale.payments.count > 0 ? "Pagado" : "#{number_to_currency sale.remaining_balance}" %></td>
+            <td><%= link_to 'Mostrar', edit_sale_path(sale) %> | <%= link_to 'Eliminar', sale, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="panel-body">
+      
+      <%= js_will_paginate @sales %>
+   
+      </div>
+  </div>
+</div>
+
+<p>Hola</p> <br>
+<p>mundo</p>
+
+  
+<% end %>
+      

@@ -1,0 +1,16 @@
+$('.datos').html("<%= escape_javascript render(:file => 'reports/shared/_sale_by_date.html.erb') %>");
+$(document).ready(function () {
+  $('.pagination .previous_page').text('Anterior');
+  $('.pagination .next_page').text('Siguiente');
+
+  $('.pagination').each(function () {
+    var $bar = $(this);
+    $bar.find('a, .current, span').wrapAll('<ul class="pagination">');
+    $bar.find('a, .current, span').wrap('<li>');
+
+    $bar.find('em').each(function () {
+      $(this).parent().addClass('disabled');
+      $(this).replaceWith('<a href="#">' + $(this).text() + '</a>');
+    });
+  });
+});

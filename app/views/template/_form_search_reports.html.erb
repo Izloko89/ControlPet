@@ -1,5 +1,0 @@
-<%= simple_form_for :search, :url => (search_reports_path) do |f| %>
-    <%= f.input :created_at, wrapper: :ranged_datetime,input_html: {id: "datetimepicker6"}, :label => "Fecha Inicio" %>
-    <%= f.input :last_date, wrapper: :ranged_datetime, input_html: {id: "datetimepicker7"} , :label => "Fecha Final" %>
-    <%= f.submit 'Buscar', :class => "btn btn-success btn-lg" %>
-<% end %>

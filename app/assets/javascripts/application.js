@@ -20,3 +20,10 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+
+$(function() {
+  $(".datos th a, .datos .pagination a").on("click", function(){
+    $.getScript(this.href);
+    return false;
+  });
+});
