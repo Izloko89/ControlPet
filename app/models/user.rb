@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
   
+  def self.reset_password_with
+    1.hour
+    # Determine the interval. Any time objects will do, say 1.hour
+  end
+
 end
