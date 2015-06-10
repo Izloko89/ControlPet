@@ -5,7 +5,7 @@
           <tr>
           
             <th>Nombre</th><!-- Name: -->
-+            <th>Descripcion</th><!-- Descripcion: -->
++            <th>Descripción</th><!-- Descripcion: -->
           </tr>
         </thead>
 
@@ -14,7 +14,7 @@
             <tr>
               <td><%= item_category.name %></td>
               <td><%= item_category.description %></td>
-              <td><%= link_to 'Show', edit_item_category_path(item_category) %> | <%= link_to 'Destroy', item_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Editar', edit_item_category_path(item_category) %> | <%= link_to 'Eliminar', item_category, method: :delete, data: { confirm: '¿Esta seguro que desea eliminarlo?' } %></td>
             </tr>
           <% end %>
         </tbody>
