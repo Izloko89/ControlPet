@@ -43,15 +43,16 @@ end
   def destroy
     set_sale
 
-    if current_user.can_update_items == true
+    if current_user.can_remove_sales == true
       @sale.destroy
-    else
-      redirect_to @sale, notice: 'You do not have permission to delete sales.'
-    end
-    respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'Sale has been deleted.'}
+      respond_to do |format|
+      format.html { redirect_to sales_url, notice: 'La venta ha sido eliminada'}
       format.json { head :no_content }
     end
+    else
+      redirect_to @sale, alert: 'No tiene los permisos para eliminar'
+    end
+    
   end
 
   # searched Items

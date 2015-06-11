@@ -1,7 +1,7 @@
 <div class="well breadcrumbs">
 	<div class="row hidden-print">
 		<div class="col-sm-8 left">
-			<strong><%= Date.today.to_s(:long) %></strong> - 
+			<strong><%=  Date.today.to_s(:long) %></strong> - 
 			<%= @configurations.store_name.blank? ? "Gikma Point of Sale" : @configurations.store_name %> 
 		</div>
 		<div class="col-sm-4 right">
