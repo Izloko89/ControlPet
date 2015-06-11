@@ -1,6 +1,9 @@
 class ItemCategory < ActiveRecord::Base
 	has_many :items
 	
-	validates :user_id, presence: true
-	validates :name, :presence => true
+	
+	validates :name, :presence => {:message => "Nombre, No puede ir vacio"}
+	validates_uniqueness_of :name, :scope => :user_id, :message => "Nombre, Está duplicado"
+
+
 end

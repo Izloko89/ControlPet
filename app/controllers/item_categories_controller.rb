@@ -26,9 +26,6 @@ class ItemCategoriesController < ApplicationController
   def create
     @item_category = ItemCategory.new(item_category_params)
     @item_category.user_id = current_user.id
-    search = ItemCategory.where(:name => @item_category.name,:user_id => current_user.user_id)
-    
-    if search.blank?
       respond_to do |format|
         if @item_category.save
           format.html { redirect_to :back, notice: 'Se ha creado la categoria' }
@@ -38,19 +35,11 @@ class ItemCategoriesController < ApplicationController
           format.json { render json: @item_category.errors, status: :unprocessable_entity }
         end
       end
-    else
-        respond_to do |duplicate|
-        duplicate.html { redirect_to @item_category, alert: 'Categoria Repetida' }
-        duplicate.json { render json: @item_category.errors, status: :unprocessable_entity}
-      end
-    end
   end
 
   # PATCH/PUT /item_categories/1
   # PATCH/PUT /item_categories/1.json
   def update
-    search = ItemCategory.where(:name => item_category_params[:name],:user_id => current_user.user_id)
-     if search.blank?
       respond_to do |format|
       if @item_category.update(item_category_params)
         format.html { redirect_to @item_category, notice: 'se ha actualizado la categoría' }
@@ -58,12 +47,6 @@ class ItemCategoriesController < ApplicationController
       else
         format.html { render action: 'edit' }
         format.json { render json: @item_category.errors, status: :unprocessable_entity }
-      end
-    end
-    else
-        respond_to do |duplicate|
-        duplicate.html { redirect_to @item_category, alert: 'Categoria Repetida' }
-        duplicate.json { render json: @item_category.errors, status: :unprocessable_entity}
       end
     end
   end

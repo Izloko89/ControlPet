@@ -29,11 +29,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.published = true
     @item.user_id = current_user.user_id
-    search = Item.where(:sku => @item.sku,:user_id => current_user.user_id)
-    
-    if search.blank?
       respond_to do |format|
-        if @item_category.save
+        if @item.save
           format.html { redirect_to :back, notice: 'Se ha creado el articulo' }
           format.json { render action: 'show', status: :created, location: @item_category }    
         else
@@ -41,18 +38,10 @@ class ItemsController < ApplicationController
           format.json { render json: @item.errors, status: :unprocessable_entity }
         end
       end
-    else
-        respond_to do |duplicate|
-        duplicate.html { redirect_to @item, alert: 'SKU Repetido' }
-        duplicate.json { render json: @item, status: :unprocessable_entity}
-  end
-end
 end
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    search = Item.where(:sku => item_params[:sku],:user_id => current_user.user_id)
-    if search.blank?
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Se ha actualizado el articulo' }
@@ -62,12 +51,6 @@ end
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
-  else
-    respond_to do |duplicate|
-        duplicate.html { redirect_to @item, alert: 'SKU Repetido' }
-        duplicate.json { render json: @item, status: :unprocessable_entity}
-    end
-  end
   end
 
   # DELETE /items/1

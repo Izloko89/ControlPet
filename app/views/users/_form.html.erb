@@ -2,67 +2,67 @@
   <%= render :partial => 'template/form_errors', :object => @user %>
 
   <div class="panel panel-default">
-    <div class="panel-heading">User Details</div>
+    <div class="panel-heading">Detallles de usuario</div>
     <div class="panel-body">
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <label>Email</label>
-            <%= f.text_field :email, :class => "form-control", :placeholder => "Email Address" %>
+            <label>Correo Electronico</label>
+            <%= f.text_field :email, :class => "form-control", :placeholder => "Correo Electronico" %>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label>User Name</label>
-            <%= f.text_field :username, :class => "form-control", :placeholder => "User Name" %>
+            <label>Nombre de usuario</label>
+            <%= f.text_field :username, :class => "form-control", :placeholder => "Nombre de usuario" %>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <label>Password</label>
-            <%= f.text_field :password, :class => "form-control", :placeholder => "Secret Password", :type => "password" %>
+            <label>Contraseña</label>
+            <%= f.text_field :password, :class => "form-control", :placeholder => "Contraseña", :type => "password" %>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label>Password Confirmation</label>
-            <%= f.text_field :password, :class => "form-control", :placeholder => "Secret Password", :type => "password" %>
+            <label>Confirme Contraseña</label>
+            <%= f.text_field :password, :class => "form-control", :placeholder => "Confirmar Contraseña", :type => "password" %>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <% unless @user.id.blank? || @user.id == 1 %>
+  <% unless @user.id.blank? || @user.id == 1 || @user.is_admin == true %>
     <div class="panel panel-default">
-      <div class="panel-heading">Permissions</div>
+      <div class="panel-heading">Permisos</div>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-12">
             <div class="checkbox">
               <label>
                 <%= f.check_box :can_update_configuration %>
-                Can change store configuration
+                Puede cambiar las configuraciones de la tienda
               </label>
             </div>
             <div class="checkbox">
               <label>
                 <%= f.check_box :can_update_users %>
-                Can update users
+                Puede editar los usuarios
               </label>
             </div>
             <div class="checkbox">
               <label>
                 <%= f.check_box :can_update_items %>
-                Can update items
+                Puede editar los articulos
               </label>
             </div>
             <div class="checkbox">
               <label>
                 <%= f.check_box :can_view_reports %>
-                Can view reports
+                Puede ver los reportes
               </label>
             </div>
             <!-- <div class="checkbox">
@@ -74,7 +74,7 @@
             <div class="checkbox">
               <label>
                 <%= f.check_box :can_remove_sales %>
-                Can delete sales
+                Puede eliminar ventas 
               </label>
             </div>
           </div>
@@ -87,7 +87,7 @@
 
   <div class="row">
   <div class="col-sm-12">
-    <%= f.submit 'Update User', :class => "btn btn-success btn-lg" %>
+    <%= f.submit 'Actualizar Usuario', :class => "btn btn-success btn-lg" %>
   </div>
 </div>
 <% end %>

@@ -5,11 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  validates :username, :presence => true, :uniqueness => true
-  
-  def self.reset_password_with
-    1.hour
-    # Determine the interval. Any time objects will do, say 1.hour
-  end
-
+  validates :username, :presence => {:message => "Nombre de usuario, no puede ir vacio"}
+  validates_uniqueness_of :username, :scope => :user_id, :message => "El usuario esta repetido"
+  validates_uniqueness_of :email, :message => "El correo ya existe"
 end
