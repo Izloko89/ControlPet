@@ -1,10 +1,11 @@
 class ItemCategoriesController < ApplicationController
+  before_action :check_admin_user, only: [:edit, :create, :update, :destroy]
   before_action :set_item_category, only: [:show, :edit, :update, :destroy]
 
   # GET /item_categories
   # GET /item_categories.json
   def index
-    @item_categories = ItemCategory.paginate(:page => params[:page], :per_page => 20).where(:user_id => current_user.id)
+    @item_categories = ItemCategory.paginate(:page => params[:page], :per_page => 20).where(:user_id => current_user.user_id)
   end
 
   # GET /item_categories/1
@@ -25,7 +26,7 @@ class ItemCategoriesController < ApplicationController
   # POST /item_categories.json
   def create
     @item_category = ItemCategory.new(item_category_params)
-    @item_category.user_id = current_user.id
+    @item_category.user_id = current_user.user_id
       respond_to do |format|
         if @item_category.save
           format.html { redirect_to :back, notice: 'Se ha creado la categoria' }
@@ -69,6 +70,13 @@ class ItemCategoriesController < ApplicationController
     def set_item_category
       @item_category = ItemCategory.find(params[:id])
 
+    end
+
+    def check_admin_user
+    unless current_user.is_admin || current_user.can_update_items
+      flash[:alert] = "No tienes los permisos"
+      redirect_to :back
+    end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :check_admin_user, only: [:edit, :create, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -76,6 +77,13 @@ end
     def set_item
       @item = Item.find(params[:id])
       @categories = ItemCategory.where(:user_id => current_user.user_id)
+    end
+
+    def check_admin_user
+    unless current_user.is_admin || current_user.can_update_items
+      flash[:alert] = "No tienes los permisos"
+      redirect_to :back
+    end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

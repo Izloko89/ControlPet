@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
-	def index
+	before_action :check_admin_user, only: [:show, :index]
+  def index
    
 	end
 
@@ -21,7 +22,10 @@ class ReportsController < ApplicationController
 
 private
  	
- 	def set_item
-      
+ 	def check_admin_user
+    unless current_user.is_admin || current_user.can_view_reports
+      flash[:alert] = "No tienes los permisos"
+      redirect_to :back
+    end
     end
 end

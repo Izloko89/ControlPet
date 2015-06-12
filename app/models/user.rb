@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates :username, :presence => {:message => "Nombre de usuario, no puede ir vacio"}
   validates_uniqueness_of :username, :scope => :user_id, :message => "El usuario esta repetido"
   validates_uniqueness_of :email, :message => "El correo ya existe"
+  validates :password, :presence => {:message => "Contraseña, no puede ir vacio"}
 end
