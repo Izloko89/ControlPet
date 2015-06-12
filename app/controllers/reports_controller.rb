@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
 	def search
     start_date = params[:search][:start_date]
     end_date = params[:search][:end_date]
-    @sales = Sale.where(:created_at => start_date..end_date).where(:user_id => current_user.user_id).paginate(:page => params[:page], :per_page => 5)
+    @sales = Sale.where(:created_at => start_date..end_date).where(:user_id => current_user.user_id).paginate(:page => params[:page], :per_page => 20)
     
  	end
   	
