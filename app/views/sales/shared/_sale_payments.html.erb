@@ -19,9 +19,9 @@
         <%= fields_for @sale do |f|%>
           <%= f.fields_for :payments do |e| %>
     	      <tr>
-    	        <td><%= e.text_field :payment_type, :class => "form-control", :placeholder => "Payment Type", :readonly => true %></td>
-    	        <td><%= e.text_field :amount, :class => "form-control", :placeholder => "Amount", :readonly => true %></td>
-    	        <td><%= e.text_field :created_at, :class => "form-control", :placeholder => "Created At", :readonly => true %></td>
+    	        <td><%= e.text_field :payment_type, :class => "form-control", :placeholder => "Tipo de pago", :readonly => true %></td>
+    	        <td><%= e.text_field :amount, :class => "form-control", :placeholder => "Cantidad", :readonly => true %></td>
+    	        <td><%= e.text_field :created_at, :class => "form-control", :placeholder => "Creado el", :readonly => true %></td>
     	      </tr>
     	    <% end %>
         <% end %>
@@ -30,10 +30,10 @@
   </table>
 
 <% if @sale.remaining_balance <= 0.00 && @sale.payments.count > 0 %>
-  <div class="alert alert-success hidden-print">Payment Complete</div>
+  <div class="alert alert-success hidden-print">Pago Exitoso</div>
   Change Due: <%= number_to_currency @sale.change_due %>
 <% else %>
-  <h4 class="text-primary hidden-print"><span class="glyphicon glyphicon-shopping-cart"></span> Balance</h4>
+  <h4 class="text-primary hidden-print"><span class="glyphicon glyphicon-shopping-cart"></span> Balance General</h4>
 
   <div class="alert alert-danger hidden-print">
     <%= number_to_currency @sale.remaining_balance %>

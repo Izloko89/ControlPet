@@ -2,38 +2,38 @@
   <%= form_for :custom_customer, :url => url_for(:controller => "sales", :action => "create_custom_customer", :sale_id => @sale.id, :format => :js), :method => "get", :remote => true, :html => { :id => 'create_custom_customer' } do |f| %>
   
     <div class="form-group">
-      <label>First Name</label>
-      <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+      <label>Nombre</label>
+      <%= f.text_field :first_name, :class => "form-control", :placeholder => "Nombre(s)" %>
     </div>
     <div class="form-group">
-      <label>Last Name</label>
-      <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
+      <label>Apellidos</label>
+      <%= f.text_field :last_name, :class => "form-control", :placeholder => "Apellidos" %>
     </div>
     <div class="form-group">
-      <label>Email Address</label>
-      <%= f.text_field :email_address, :class => "form-control", :placeholder => "example@example.com" %>
+      <label>Correo Eléctronico</label>
+      <%= f.text_field :email_address, :class => "form-control", :placeholder => "ejemplo@ejemplo.com" %>
     </div>
     <div class="form-group">
-      <label>Phone</label>
-      <%= f.text_field :phone_number, :class => "form-control", :placeholder => "000 - 000 - 00000" %>
+      <label>Telefono</label>
+      <%= f.text_field :phone_number, :class => "form-control", :placeholder => "Telefono" %>
     </div>
     <div class="form-group">
-      <label>Address</label>
-      <%= f.text_field :address, :class => "form-control", :placeholder => "Address" %>
+      <label>Dirección</label>
+      <%= f.text_field :address, :class => "form-control", :placeholder => "Dirección" %>
     </div>
     <div class="form-group">
-      <label>City</label>
-      <%= f.text_field :city, :class => "form-control", :placeholder => "City" %>
+      <label>Ciudad</label>
+      <%= f.text_field :city, :class => "form-control", :placeholder => "Ciudad" %>
     </div>
     <div class="form-group">
-      <label>State</label>
-      <%= f.text_field :state, :class => "form-control", :placeholder => "State" %>
+      <label>Estado</label>
+      <%= f.text_field :state, :class => "form-control", :placeholder => "Estado" %>
     </div>
     <div class="form-group">
-      <label>Zip</label>
-      <%= f.text_field :zip, :class => "form-control", :placeholder => "Zip" %>
+      <label>C.P</label>
+      <%= f.text_field :zip, :class => "form-control", :placeholder => "Código Postal" %>
     </div>
-    <div class="form-group"><%= f.submit 'Add Customer', :class => "btn close_custom_modal" %></div>
+    <div class="form-group"><%= f.submit 'Agregar Cliente', :class => "btn close_custom_modal" %></div>
         
   <% end %>
 </div>

@@ -4,13 +4,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Payment Options</h4>
+          <h4 class="modal-title" id="myModalLabel">Opciones de pago</h4>
         </div>
         <div class="modal-body">
           <%= render :partial => 'sales/shared/payment' %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -22,7 +22,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Custom Item Details</h4>
+          <h4 class="modal-title" id="myModalLabel">Nuevo Articulo</h4>
         </div>
         <div class="modal-body">
           <%= render :partial => 'sales/shared/create_custom_item', :object => @sale %>
@@ -40,13 +40,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Customer Details</h4>
+          <h4 class="modal-title" id="myModalLabel">Agregar nuevo Cliente</h4>
         </div>
         <div class="modal-body">
           <%= render :partial => 'sales/shared/create_custom_customer', :object => @sale %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
