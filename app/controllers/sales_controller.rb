@@ -346,6 +346,7 @@ end
     def return_item_to_stock(item_id, quantity)
       item = Item.find(item_id)
       item.stock_amount = item.stock_amount + quantity
+       item.amount_sold -= quantity
       item.save
     end
 
